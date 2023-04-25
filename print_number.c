@@ -6,24 +6,20 @@
  * Return: total number of n
  */
 
-int print_number(int n)
+int print_number(int n, int *count)
 {
 	unsigned int num = n;
-	int count;
 
-	count = 0;
 	if (n < 0)
 	{
-		_putchar('-');
-		count++;
+		*count += _putchar('-');
 		num = -num;
 	}
 
 	if ((num / 10) > 0)
-		print_number(num / 10);
+		print_number(num / 10, count);
 
-	_putchar((num % 10) + '0');
-	count++;
+	*count += _putchar((num % 10) + '0');
 
-	return (count);
+	return (*count);
 }

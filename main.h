@@ -21,6 +21,6 @@ int _putchar(char c);
 int print_string(int i, ...);
 int print_char(int i, ...);
 int print_digit(int i, ...);
-int print_number(int n);
+int print_number(int n, int *count);
 
 #endif /* MAIN_H */
