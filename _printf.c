@@ -14,8 +14,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	i = 0;
-	result = 0;
+	i = 0,	result = 0;
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -32,13 +31,7 @@ int _printf(const char *format, ...)
 		}
 
 		f = get_func(format[i + 1]);
-		if (format[i + 1] == 'c')
-		{
-			result += f(1, va_arg(args, int));
-			i += 2;
-			continue;
-		}
-		if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		if (format[i + 1] == 'c' || format[i + 1] == 'd' || format[i + 1] == 'i')
 		{
 			result += f(1, va_arg(args, int));
 			i += 2;
