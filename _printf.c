@@ -10,6 +10,7 @@
 int _printf(const char *format, ...)
 {
 	int i, result;
+	int (*f)(int i, ...);
 	va_list args;
 
 	va_start(args, format);
@@ -23,20 +24,31 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
-		switch (format[i + 1])
+		if (format[i + 1] == '%')
 		{
-			case 'c':
-				result += _putchar(va_arg(args, int));
-				i += 2;
-				break;
-			case 's':
-				result += print_string(va_arg(args, char *));
-				i += 2;
-				break;
-			case '%':
-				result += _putchar('%');
-				i += 2;
-				break;
+			result += _putchar('%');
+			i += 2;
+			continue;
+		}
+
+		f = get_func(format[i + 1]);
+		if (format[i + 1] == 'c')
+		{
+			result += f(1, va_arg(args, int));
+			i += 2;
+			continue;
+		}
+		if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		{
+			result += f(1, va_arg(args, int));
+			i += 2;
+			continue;
+		}
+		if (format[i + 1] == 's')
+		{
+			result += f(1, va_arg(args, char *));
+			i += 2;
+			continue;
 		}
 	}
 	va_end(args);
