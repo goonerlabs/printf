@@ -12,6 +12,7 @@ int main(void)
 	int i;
 
 	i = _printf("Testing task %% of the _printf %s, and %c character\n", "function", '@');
-	printf("%d\n", i);
+	_printf("d = %d\n", i);
+	_printf("i = %i\n", i);
 	return (0);
 }

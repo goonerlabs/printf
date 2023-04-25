@@ -20,5 +20,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int print_string(int i, ...);
 int print_char(int i, ...);
+int print_digit(int i, ...);
+int print_number(int n);
 
 #endif /* MAIN_H */

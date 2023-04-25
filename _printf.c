@@ -38,6 +38,12 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
+		if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		{
+			result += f(1, va_arg(args, int));
+			i += 2;
+			continue;
+		}
 		if (format[i + 1] == 's')
 		{
 			result += f(1, va_arg(args, char *));

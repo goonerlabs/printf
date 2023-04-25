@@ -11,7 +11,9 @@ int (*get_func(char s))(int i, ...)
 	int i;
 	func_t arr[] = {
 		{print_char, 'c'}, 
-		{print_string, 's'}, 
+		{print_string, 's'},
+		{print_digit, 'd'},
+		{print_digit, 'i'},	
 		{NULL, '\0'}
 	};
 
