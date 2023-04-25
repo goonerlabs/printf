@@ -10,7 +10,6 @@
 int _printf(const char *format, ...)
 {
 	int i, result;
-	void *ptr;
 	int (*f)(int i, ...);
 	va_list args;
 
@@ -34,11 +33,17 @@ int _printf(const char *format, ...)
 
 		f = get_func(format[i + 1]);
 		if (format[i + 1] == 'c')
-			ptr =  va_arg(args, int);
+		{
+			result += f(1, va_arg(args, int));
+			i += 2;
+			continue;
+		}
 		if (format[i + 1] == 's')
-			ptr = va_arg(args, char *);
-		result += f(1, *ptr);
-		i += 2;
+		{
+			result += f(1, va_arg(args, char *));
+			i += 2;
+			continue;
+		}
 	}
 	va_end(args);
 	return (result);
