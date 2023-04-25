@@ -3,6 +3,7 @@
 /**
  * print_number - function that prints an integer.
  * @n: integer value
+ * @count: second argument
  * Return: total number of n
  */
 
