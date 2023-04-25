@@ -2,7 +2,7 @@
 
 /**
  * get_func - a function that iterates through an array of functions
- * @specifier: given formatter
+ * @s: character
  * Return: a pointer to the function
  */
 
@@ -10,10 +10,10 @@ int (*get_func(char s))(int i, ...)
 {
 	int i;
 	func_t arr[] = {
-		{print_char, 'c'}, 
+		{print_char, 'c'},
 		{print_string, 's'},
 		{print_digit, 'd'},
-		{print_digit, 'i'},	
+		{print_digit, 'i'},
 		{NULL, '\0'}
 	};
 
