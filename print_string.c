@@ -10,17 +10,17 @@
 int print_string(int i, ...)
 {
 	int index;
-	va_list str;
-	char *c;
-	va_start(str, i);
+	va_list args;
+	char *str;
+	va_start(args, i);
 
-	c = va_arg(str, char *);
+	str = va_arg(args, char *);
 	index = 0;
-	while (c[index])
+	while (str[index])
 	{
-		_putchar(c[index]);
+		_putchar(str[index]);
 		index++;
 	}
-	va_end(str);
+	va_end(args);
 	return (index);
 }

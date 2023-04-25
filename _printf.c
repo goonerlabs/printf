@@ -10,8 +10,9 @@
 int _printf(const char *format, ...)
 {
 	int i, result;
+	void *ptr;
+	int (*f)(int i, ...);
 	va_list args;
-	map func_and_type;
 
 	va_start(args, format);
 	i = 0;
@@ -24,41 +25,20 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
-
-		func_and_type = get_func(format[i + 1]);
-		if (func_and_type.type == 0)
-		{
-			result += print_char(1, va_arg(args, int));
-			i += 2;
-		}
-		if (func_and_type.type == 1)
-		{
-			result += print_string(1, va_arg(args, char *));
-			i += 2;
-		}
 		if (format[i + 1] == '%')
 		{
 			result += _putchar('%');
 			i += 2;
+			continue;
 		}
-		else
-			break;
-		/*
-		switch (format[i + 1])
-		{
-			case 'c':
-				result += _putchar(va_arg(args, int));
-				i += 2;
-				break;
-			case 's':
-				result += print_string(va_arg(args, char *));
-				i += 2;
-				break;
-			case '%':
-				result += _putchar('%');
-				i += 2;
-				break;
-		}*/
+
+		f = get_func(format[i + 1]);
+		if (format[i + 1] == 'c')
+			ptr =  va_arg(args, int);
+		if (format[i + 1] == 's')
+			ptr = va_arg(args, char *);
+		result += f(1, *ptr);
+		i += 2;
 	}
 	va_end(args);
 	return (result);

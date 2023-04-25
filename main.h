@@ -15,18 +15,7 @@ typedef struct func_type
 	char specifier;
 } func_t;
 
-/**
- * struct type_func_map - struct data type to map a function
- * @type: data type
- * @func: corresponding function to the data type
- */
-typedef struct type_func_map
-{
-	int type;
-	int (*func)(int n, ...);
-} map;
-
-map get_func(char specifier);
+int (*get_func(char s))(int i, ...);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_string(int i, ...);

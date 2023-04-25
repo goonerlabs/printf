@@ -1,6 +1,9 @@
 #include "main.h"
 /**
- * print_char-
+ * print_char- prints a single character
+ * @i: then number of characters to be printed
+ * @...: then the character to be printed
+ * Return: the number of characters printed
  *
  */
 

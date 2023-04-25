@@ -3,27 +3,27 @@
 /**
  * get_func - a function that iterates through an array of functions
  * @specifier: given formatter
- * Return: a struct data type
+ * Return: a pointer to the function
  */
 
-map get_func(char specifier)
+int (*get_func(char s))(int i, ...)
 {
 	int i;
-	map result;
-	func_t array[] = {
-		{'c', print_char}, {'s', print_string}, {NULL, NULL}
-	}
+	func_t arr[] = {
+		{print_char, 'c'}, 
+		{print_string, 's'}, 
+		{NULL, '\0'}
+	};
 
 	i = 0;
-	while (array[i].specifier)
+	while (arr[i].specifier)
 	{
-		if (array[i].specifier == specifier)
+		if (arr[i].specifier == s)
 		{
-			result.type = i;
-			result.func = array[i].func
+			return (arr[i].func);
 		}
 
 		i++;
 	}
-	return result;
+	return (NULL);
 }
