@@ -1,5 +1,8 @@
 #include "main.h"
+<<<<<<< HEAD
 #include <stdarg.h>
+=======
+>>>>>>> master
 
 /**
  * print_string - prints a string to stdout
@@ -7,6 +10,7 @@
  * Return: number of characters printed
  */
 
+<<<<<<< HEAD
 int print_string(int i, ...)
 {
 	int index;
@@ -23,4 +27,16 @@ int print_string(int i, ...)
 	}
 	va_end(args);
 	return (index);
+=======
+int print_string(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+	{
+		_putchar(str[i]);
+		i++;
+	}
+	return (i);
+>>>>>>> master
 }
