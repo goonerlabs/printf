@@ -20,6 +20,11 @@ int print_binary(int i, ...)
 
 	if (val < 0)
 		return (-1);
+	if (val == 0)
+	{
+		count += _putchar(0 + '0');
+		return (-1);
+	}
 	while (val > 0)
 	{
 		result[index] = val % 2;
