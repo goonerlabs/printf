@@ -15,8 +15,6 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	i = 0,	result = 0;
-	if (format == NULL)
-		return (-1);
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -32,6 +30,8 @@ int _printf(const char *format, ...)
 			continue;
 		}
 		f = get_func(format[i + 1]);
+		if (f == NULL)
+			return (-1);
 		if (format[i + 1] == 'c' || format[i + 1] == 'd' || format[i + 1] == 'i' ||
 				format[i + 1] == 'b' ||	format[i + 1] == 'o' || format[i + 1] == 'u'
 				|| format[i + 1] == 'x' || format[i + 1] == 'X')
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
-		if (format[i + 1] == 's')
+		if (format[i + 1] == 's' || format[i + 1] == 'r')
 		{
 			result += f(1, va_arg(args, char *));
 			i += 2;

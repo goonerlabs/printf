@@ -13,6 +13,7 @@ int (*get_func(char s))(int i, ...)
 		{print_char, 'c'}, {print_string, 's'},	{print_digit, 'd'},
 		{print_digit, 'i'}, {print_binary, 'b'}, {print_digit, 'u'},
 		{print_octal, 'o'}, {print_hex, 'x'}, {print_hex_cap, 'X'},
+		{print_reverse, 'r'},
 		{NULL, '\0'}
 	};
 

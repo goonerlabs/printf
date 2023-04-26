@@ -27,5 +27,6 @@ int print_binary(int i, ...);
 int print_octal(int i, ...);
 int print_hex(int i, ...);
 int print_hex_cap(int i, ...);
+int print_reverse(int n, ...);
 
 #endif /* MAIN_H */
