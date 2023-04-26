@@ -31,10 +31,10 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
-
 		f = get_func(format[i + 1]);
 		if (format[i + 1] == 'c' || format[i + 1] == 'd' || format[i + 1] == 'i' ||
-				format[i + 1] == 'b' ||	format[i + 1] == 'o' || format[i + 1] == 'u')
+				format[i + 1] == 'b' ||	format[i + 1] == 'o' || format[i + 1] == 'u'
+				|| format[i + 1] == 'x' || format[i + 1] == 'X')
 		{
 			result += f(1, va_arg(args, int));
 			i += 2;
