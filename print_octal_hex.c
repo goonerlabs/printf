@@ -17,7 +17,7 @@ int print_octal(int i, ...)
 	int result[1024];
 
 	va_start(args, i);
-	val = va_arg(args, int);
+	val = va_arg(args, long int);
 	index = 0;
 
 	if (val < 0)
@@ -58,7 +58,7 @@ int print_hex(int i, ...)
 	char result[1024];
 
 	va_start(args, i);
-	val = va_arg(args, int);
+	val = va_arg(args, long int);
 	hex_str = "0123456789abcdef";
 
 	if (val < 0)
@@ -104,7 +104,7 @@ int print_hex_cap(int i, ...)
 	char result[1024];
 
 	va_start(args, i);
-	val = va_arg(args, int);
+	val = va_arg(args, long int);
 	hex_str = "0123456789ABCDEF";
 
 	if (val < 0)
