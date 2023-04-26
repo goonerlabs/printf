@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
+#define BUFF_BYTE 1024
 
 /**
  * struct func_type - struct data type to map a function
@@ -22,5 +23,8 @@ int print_string(int i, ...);
 int print_char(int i, ...);
 int print_digit(int i, ...);
 int print_number(int n, int *count);
+int print_binary(int i, ...);
+int print_octal(int i, ...);
+int print_hex(int i, ...);
 
 #endif /* MAIN_H */
