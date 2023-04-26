@@ -18,6 +18,7 @@ int (*get_func(char s))(int i, ...)
 		{print_digit, 'u'},
 		{print_octal, 'o'},
 		{print_reverse, 'r'},
+		{print_rot13, 'R'},
 		{NULL, '\0'}
 	};
 
