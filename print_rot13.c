@@ -27,7 +27,7 @@ int print_rot13(int n, ...)
 		{
 			if (s[i] == a[j])
 			{
-				count +=_putchar(b[j]);
+				count += _putchar(b[j]);
 				break;
 			}
 		}
