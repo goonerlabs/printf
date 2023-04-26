@@ -17,6 +17,7 @@ int (*get_func(char s))(int i, ...)
 		{print_binary, 'b'},
 		{print_digit, 'u'},
 		{print_octal, 'o'},
+		{print_reverse, 'r'},
 		{NULL, '\0'}
 	};
 

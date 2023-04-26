@@ -15,8 +15,6 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	i = 0,	result = 0;
-	if (format == NULL)
-		return (-1);
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -42,7 +40,7 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
-		if (format[i + 1] == 's')
+		if (format[i + 1] == 's' || format[i + 1] == 'r')
 		{
 			result += f(1, va_arg(args, char *));
 			i += 2;
