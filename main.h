@@ -26,6 +26,7 @@ int print_number(int n, int *count);
 int print_binary(int i, ...);
 int print_octal(int i, ...);
 int print_hex(int i, ...);
+int print_hex_cap(int i, ...);
 int print_reverse(int n, ...);
 int print_rot13(int n, ...);
 
