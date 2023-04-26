@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
-		if (format[i + 1] == 's' || format[i + 1] == 'r')
+		if (format[i + 1] == 's' || format[i + 1] == 'r' || format[i + 1] == 'R')
 		{
 			result += f(1, va_arg(args, char *));
 			i += 2;
