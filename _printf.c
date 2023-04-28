@@ -17,12 +17,12 @@ int _printf(const char *format, ...)
 	i = 0,	result = 0;
 	while (format[i])
 	{
-		if (format[i] != '%')
+		for (; format[i] != '%' && format[i]; i++)
 		{
 			result += _putchar(format[i]);
-			i++;
-			continue;
 		}
+		if (!format[i])
+			return (result);
 		if (format[i + 1] == '%')
 		{
 			result += _putchar('%');
@@ -42,6 +42,8 @@ int _printf(const char *format, ...)
 			result += f(1, va_arg(args, long int));
 		if (format[i + 1] == 'u')
 			result += f(1, va_arg(args, unsigned int));
+		if (!format[i + 1])
+			return (-1);
 		i += 2;
 	}
 	va_end(args);
