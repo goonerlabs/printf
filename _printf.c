@@ -33,12 +33,15 @@ int _printf(const char *format, ...)
 		if (f == NULL)
 			return (-1);
 		if (format[i + 1] == 'c' || format[i + 1] == 'd' || format[i + 1] == 'i' ||
-				format[i + 1] == 'b' ||	format[i + 1] == 'u')
+				format[i + 1] == 'b' || format[i + 1] == 'x' ||
+				format[i + 1] == 'X' || format[i + 1] == 'o')
 			result += f(1, va_arg(args, int));
 		if (format[i + 1] == 's' || format[i + 1] == 'r' || format[i + 1] == 'R')
 			result += f(1, va_arg(args, char *));
-		if (format[i + 1] == 'p' || format[i + 1] == 'x' || format[i + 1] == 'X' || format[i + 1] == 'o')
-			result += f(1, va_arg(args, unsigned long int));
+		if (format[i + 1] == 'p')
+			result += f(1, va_arg(args, long int));
+		if (format[i + 1] == 'u')
+			result += f(1, va_arg(args, unsigned int));
 		i += 2;
 	}
 	va_end(args);
