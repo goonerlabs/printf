@@ -13,14 +13,16 @@
 int print_octal(int i, ...)
 {
 	va_list args;
-	unsigned long int val;
+	long int val;
 	int index, len, count = 0;
 	int result[1024];
 
 	va_start(args, i);
-	val = va_arg(args, unsigned long int);
+	val = va_arg(args, long int);
 	index = 0;
 
+	if (val < 0)
+		return (-1);
 	if (val == 0)
 	{
 		_putchar(0 + '0');
@@ -51,15 +53,17 @@ int print_octal(int i, ...)
 int print_hex(int i, ...)
 {
 	va_list args;
-	unsigned long int val, res;
+	long int val, res;
 	char hex_str[16] = "0123456789abcdef";
 	int index = 0, len, count = 0;
 	char result[1024];
 
 	va_start(args, i);
-	val = va_arg(args, unsigned long int);
+	val = va_arg(args, long int);
 	/*hex_str = "0123456789abcdef";*/
 
+	if (val < 0)
+		return (-1);
 	if (val == 0)
 	{
 		_putchar(0 + '0');
@@ -95,15 +99,17 @@ int print_hex(int i, ...)
 int print_hex_cap(int i, ...)
 {
 	va_list args;
-	unsigned long int val, res;
+	long int val, res;
 	char hex_str[16] = "0123456789ABCDEF";
 	int index = 0, len, count = 0;
 	char result[1024];
 
 	va_start(args, i);
-	val = va_arg(args, unsigned long int);
+	val = va_arg(args, long int);
 	/*hex_str = "0123456789ABCDEF";*/
 
+	if (val < 0)
+		return (-1);
 	if (val == 0)
 	{
 		_putchar(0 + '0');
