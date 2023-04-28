@@ -7,9 +7,9 @@
  * Return: total number of n
  */
 
-int print_number(int n, int *count)
+int print_number(long int n, int *count)
 {
-	unsigned int num = n;
+	long int num = n;
 
 	if (n < 0)
 	{

@@ -11,11 +11,12 @@
 int print_binary(int i, ...)
 {
 	va_list args;
-	int val, index, len, count = 0;
+	long int val;
+	int index, len, count = 0;
 	int result[32];
 
 	va_start(args, i);
-	val = va_arg(args, int);
+	val = va_arg(args, long int);
 	index = 0;
 
 	if (val < 0)

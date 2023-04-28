@@ -1,6 +1,7 @@
 #include "main.h"
 #include <limits.h>
 #include <stdlib.h>
+#include <math.h>
 
 /**
  * print_octal - function that prints the octal value of an unsigned integer
@@ -52,14 +53,14 @@ int print_octal(int i, ...)
 int print_hex(int i, ...)
 {
 	va_list args;
-	long int val;
-	char *hex_str;
-	int index = 0, res, len, count = 0;
+	long int val, res;
+	char hex_str[16] = "0123456789abcdef";
+	int index = 0 , len, count = 0;
 	char result[1024];
 
 	va_start(args, i);
 	val = va_arg(args, long int);
-	hex_str = "0123456789abcdef";
+	/*hex_str = "0123456789abcdef";*/
 
 	if (val < 0)
 		return (-1);
@@ -75,11 +76,11 @@ int print_hex(int i, ...)
 		index++;
 		val = val / 16;
 	}
-	len = 0;
-	while (result[len] != '\0')
+	len = index - 1;
+	while (len >= 0)
 	{
 		count += _putchar(result[len]);
-		len++;
+		len--;
 	}
 
 	va_end(args);
@@ -98,14 +99,14 @@ int print_hex(int i, ...)
 int print_hex_cap(int i, ...)
 {
 	va_list args;
-	long int val;
-	char *hex_str;
-	int index = 0, res, len, count = 0;
+	long int val, res;
+	char hex_str[16] = "0123456789ABCDEF";
+	int index = 0, len, count = 0;
 	char result[1024];
 
 	va_start(args, i);
 	val = va_arg(args, long int);
-	hex_str = "0123456789ABCDEF";
+	/*hex_str = "0123456789ABCDEF";*/
 
 	if (val < 0)
 		return (-1);
@@ -121,11 +122,11 @@ int print_hex_cap(int i, ...)
 		index++;
 		val = val / 16;
 	}
-	len = 0;
-	while (result[len] != '\0')
+	len = index - 1;
+	while (len >= 0)
 	{
 		count += _putchar(result[len]);
-		len++;
+		len--;
 	}
 	va_end(args);
 	return (count);
