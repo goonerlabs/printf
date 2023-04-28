@@ -22,7 +22,7 @@ int _putchar(char c);
 int print_string(int i, ...);
 int print_char(int i, ...);
 int print_digit(int i, ...);
-int print_number(long int n, int *count);
+int print_number(int n, int *count);
 int print_binary(int i, ...);
 int print_octal(int i, ...);
 int print_hex(int i, ...);
