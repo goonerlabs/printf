@@ -26,8 +26,6 @@ int _printf(const char *format, ...)
 		if (format[i + 1] == '%')
 		{
 			result += _putchar('%');
-			i += 2;
-			continue;
 		}
 		f = get_func(format[i + 1]);
 		if (f == NULL)
@@ -37,15 +35,16 @@ int _printf(const char *format, ...)
 				|| format[i + 1] == 'x' || format[i + 1] == 'X')
 		{
 			result += f(1, va_arg(args, int));
-			i += 2;
-			continue;
 		}
 		if (format[i + 1] == 's' || format[i + 1] == 'r' || format[i + 1] == 'R')
 		{
 			result += f(1, va_arg(args, char *));
-			i += 2;
-			continue;
 		}
+		if (format[i + 1] == 'p')
+		{
+			result += f(1, va_arg(args, unsigned long int));
+		}
+		i += 2;
 	}
 	va_end(args);
 	return (result);
