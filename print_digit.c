@@ -15,7 +15,7 @@ int print_digit(int i, ...)
 	va_start(args, i);
 	count = 0;
 
-	count = print_number(va_arg(args, long int), &count);
+	count = print_number(va_arg(args, int), &count);
 	va_end(args);
 
 	return (count);
