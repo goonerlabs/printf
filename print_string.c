@@ -17,6 +17,8 @@ int print_string(int i, ...)
 	va_start(args, i);
 
 	str = va_arg(args, char *);
+	if (str == NULL)
+		str = "(null)";
 	index = 0;
 	while (str[index])
 	{
