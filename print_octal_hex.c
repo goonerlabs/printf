@@ -55,7 +55,7 @@ int print_hex(int i, ...)
 	va_list args;
 	long int val, res;
 	char hex_str[16] = "0123456789abcdef";
-	int index = 0 , len, count = 0;
+	int index = 0, len, count = 0;
 	char result[1024];
 
 	va_start(args, i);
@@ -90,7 +90,7 @@ int print_hex(int i, ...)
 
 /**
  * print_hex_cap - function that prints the hexadecimal
- *		value of an unsigned integer
+ *		value of unsigned integers
  * @i: first parameter
  * @...: second parameter
  * Return: count
